@@ -13,6 +13,7 @@ namespace weather
 {
 	public class Example
 	{
+		public string speed { get; set; }
 	}
 
 }

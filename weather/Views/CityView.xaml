@@ -1,5 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="weather.CityView">
+<!-- Page : ContentPage --> 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="weather.CityView"
+Padding="20"
+Title="Weather">
 	<ContentPage.Content>
+		<!-- Layout : StackLayout -->
+		<StackLayout>
+			<!-- Controls : Entry , Button , ListView e etc -->
+			<Entry Placeholder="Nome da Cidade" x:Name="cityName" Text="{Binding CurrentCityName}" />
+			<Button Text="Procurar" Command="{Binding SearchCommand}" x:Name="button" ></Button>
+			<ListView  x:Name="listView" ItemsSource="{Binding listWind}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding speed}"
+                                TextColor="Green" />
+                            </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
